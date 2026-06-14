@@ -1,0 +1,8 @@
+import api from "./api";
+export const createPost = (formData) => api.post("/api/posts", formData);
+export const getFeed = (params) => api.get("/api/posts/feed", { params });
+export const likePost = (postId) => api.post(`/api/posts/${postId}/like`);
+export const commentOnPost = (postId, text) => api.post(`/api/posts/${postId}/comment`, { text });
+export const deletePost = (postId) => api.delete(`/api/posts/${postId}`);
+export const followUser = (userId) => api.post(`/api/profile/follow/${userId}`);
+export const getSavedPosts = () => api.get("/api/posts/saved");

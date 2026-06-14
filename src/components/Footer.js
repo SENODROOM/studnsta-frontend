@@ -1,0 +1,177 @@
+import React from 'react';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerSections = {
+    followUs: [
+      { name: 'Instagram', icon: '📸', url: '#' },
+      { name: 'Facebook', icon: '👤', url: '#' },
+      { name: 'Twitter', icon: '🐦', url: '#' },
+      { name: 'Email', icon: '📧', url: 'mailto:support@studnsta.com' }
+    ],
+    academicHub: [
+      { name: 'Research Papers', url: '#' },
+      { name: 'Study Guides', url: '#' },
+      { name: 'Academic integrity', url: '#' },
+      { name: 'Student Forums', url: '#' },
+      { name: 'Contact Support', url: '/privacy' },
+      { name: 'Partner Universities', url: '#' }
+    ]
+  };
+
+  return (
+    <footer style={{
+      backgroundColor: '#1A0B2E', // Deep Dark Violet
+      color: 'var(--white)',
+      padding: '4rem 2rem 2rem 2rem',
+      marginTop: 'auto',
+      borderTop: '1px solid rgba(163, 100, 255, 0.1)',
+      position: 'relative',
+      zIndex: 10
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '3rem',
+        marginBottom: '3rem'
+      }}>
+        {/* Follow Us Section */}
+        <div>
+          <h3 style={{
+            color: 'var(--rich-lilac)',
+            fontSize: '1.4rem',
+            fontWeight: '800',
+            marginBottom: '1.5rem',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase'
+          }}>
+            Follow Us
+          </h3>
+          <div style={{ display: 'flex', gap: '1.25rem' }}>
+            {footerSections.followUs.map((social) => (
+              <a 
+                key={social.name} 
+                href={social.url}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(163, 100, 255, 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.25rem',
+                  color: 'var(--rich-lilac)',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease',
+                  border: '1px solid rgba(163, 100, 255, 0.2)'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--rich-lilac)';
+                  e.currentTarget.style.color = 'var(--white)';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(163, 100, 255, 0.15)';
+                  e.currentTarget.style.color = 'var(--rich-lilac)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+          <p style={{ marginTop: '2rem', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+            Join our growing community of learners and stay updated with the latest study resources.
+          </p>
+        </div>
+
+        {/* Academic Hub Section */}
+        <div>
+          <h3 style={{
+            color: 'var(--rich-lilac)',
+            fontSize: '1.4rem',
+            fontWeight: '800',
+            marginBottom: '1.5rem',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            fontFamily: "'Outfit', sans-serif"
+          }}>
+            Academic Hub
+          </h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {footerSections.academicHub.map((link) => (
+              <li key={link.name} style={{ marginBottom: '0.75rem' }}>
+                <a 
+                  href={link.url}
+                  style={{
+                    color: 'rgba(250, 250, 255, 0.7)',
+                    textDecoration: 'none',
+                    fontSize: '1rem',
+                    fontWeight: '500',
+                    transition: 'all 0.2s',
+                    display: 'inline-block'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.color = 'var(--rich-lilac)';
+                    e.target.style.transform = 'translateX(5px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.color = 'rgba(250, 250, 255, 0.7)';
+                    e.target.style.transform = 'translateX(0)';
+                  }}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Brand/About Section */}
+        <div style={{ textAlign: 'left' }}>
+          <div style={{ 
+            fontSize: '2.2rem', 
+            fontWeight: '950', 
+            background: 'linear-gradient(135deg, var(--rich-lilac), #FFFFFF)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            marginBottom: '1.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.6rem',
+            fontFamily: "'Outfit', sans-serif",
+            letterSpacing: '0.05em'
+          }}>
+            🎓 STUDNSTA
+          </div>
+          <p style={{ color: 'rgba(250, 250, 255, 0.6)', fontSize: '1rem', maxWidth: '320px', lineHeight: '1.7', fontWeight: '500' }}>
+            Empowering students with accessible academic papers and a collaborative community. Step into the future of learning.
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div style={{
+        maxWidth: '1200px',
+        margin: '2rem auto 0 auto',
+        paddingTop: '2rem',
+        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        textAlign: 'center'
+      }}>
+        <p style={{ 
+          fontSize: '0.9rem', 
+          color: 'rgba(255, 255, 255, 0.4)',
+          fontWeight: '500'
+        }}>
+          © {currentYear} <span style={{ color: 'var(--rich-lilac)', fontWeight: '700' }}>Studnsta</span> — All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
